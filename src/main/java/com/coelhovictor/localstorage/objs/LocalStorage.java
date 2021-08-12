@@ -65,6 +65,21 @@ public class LocalStorage {
     }
     
     /**
+     * Delete a target value.
+     * 
+     * @param id value id
+     */
+    public void delete(String id) {        
+        LocalStorageController controller = LocalStorageController.getInstance();
+        DataKey dados = controller.get(this.key);
+        if(dados != null) {
+            if(dados.delete(id)) {
+                controller.save(dados);
+            }
+        }
+    }
+    
+    /**
      * Returns the target value.
      * 
      * @param <T> value class

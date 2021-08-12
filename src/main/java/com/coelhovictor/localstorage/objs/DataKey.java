@@ -37,6 +37,19 @@ public class DataKey {
     public String getKey() { return this.key; }
     
     /**
+     * Delete a object.
+     * 
+     * @param id target id
+     */
+    public boolean delete(String id) { 
+        if(this.ls.containsKey(id)) {
+            this.ls.remove(id);
+            return true;
+        }
+        return false;
+    }
+    
+    /**
      * Returns all values.
      * 
      * @return <code>HashMap<String, JsonObject></code> all values
